@@ -1,0 +1,130 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+  int cof;
+  int exp;
+  node* next;
+};
+class p
+{
+  public:
+      node*head=NULL;
+      void insert(int a,int b)
+      {
+          node* A=new node()
+          A->cof=a;
+          A->exp=b;
+          A->next=NULL;
+          if(head==NULL)
+                head=A;
+          else
+          {
+              node* temp=new node();
+              while(temp->next!=NULL)
+              {
+                   temp=temp->next;
+              }
+              temp->next=A;
+           }
+      }
+      void display()
+      {
+             node t=head;
+             while(t!=NULL)
+             {
+                  cout<<t->cof<<"y^"<<t->exp;
+                  t=t->next;
+                  }
+              }
+      }
+      void sub(p c1,p c2)
+      {
+             node* N=new node();
+             node* t1=c1.head;
+             node* t2=c2.head;
+             while(t1->next!=NULL && t2->next!=NULL)
+             {
+                  if(t1->exp==t2->exp)
+                  { 
+                      if(t1->cof > t2->cof)
+                      {
+                      N->cof=t1->cof - t2->cof;
+                      N->exp=t1->exp;
+                      t1=t1->next;
+                      t2=t2->next;
+                      }
+                      else
+                      {
+                      N->cof=t2->cof - t1->cof;
+                      N->exp=t1->exp;
+                      t1=t1->next;
+                      t2=t2->next;
+                      }
+                  }
+                  else if(t1->exp > t2->exp)
+                  {
+                      N->cof=t1->cof;
+                      N->exp=t1->exp;
+                      t1=t1->next;
+                  }
+                  else
+                  {
+                      N->cof=t2->cof;
+                      N->exp=t1->exp;
+                      t2=t2->next;
+                  }
+}
+int main()
+{
+    p p1,p2,p3;
+    cout<<"--Menu--";
+    cout<<"1.To insert ";
+    cout<<"2.To display";
+    cout<<"3.To exit";
+    while(1)
+    {
+        int choice;
+        cout<<"Enter the choice :";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1:int c,e;
+                   cout<<"Enter the coefficicent value: ":
+                   cin>>c;
+                   cout<<"Enter the exponential value : ";
+                   cin>>e;
+                   p1.insert(c,e);
+                   break;
+                   
+            case 2:p1.display();
+                   break;
+
+            case 3:exit(0);
+         }
+    }
+    while(1)
+    {
+        int option;
+        cout<<"Enter the option: ";
+        cin>>option;
+        switch(option)
+        {
+        case 1:int co,ex;
+               cout<<"Enter the coefficient value: ";
+               cin>>co;
+               cout<<"Enter the exponential value: ";
+               cin>>ex;
+               p2.insert(co,ex);
+               break;
+               
+        case 2:p2.display();
+               break;
+
+        case 3:exit(0);
+        }
+    }
+    p3.sub(p1,p2);
+    p3.display();
+    }
+    
