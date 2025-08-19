@@ -31,7 +31,7 @@ class p
       }
       void display()
       {
-             node t=head;
+             node *t=head;
              while(t!=NULL)
              {
                   cout<<t->cof<<"y^"<<t->exp;
