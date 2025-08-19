@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstdlib>
 using namespace std;
 struct node
 {
@@ -12,7 +13,7 @@ class p
       node*head=NULL;
       void insert(int a,int b)
       {
-          node* A=new node()
+          node* A=new node();
           A->cof=a;
           A->exp=b;
           A->next=NULL;
@@ -126,5 +127,5 @@ int main()
     }
     p3.sub(p1,p2);
     p3.display();
-    }
+  }
     
